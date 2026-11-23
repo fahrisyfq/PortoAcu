@@ -1,0 +1,91 @@
+---
+import { asset } from '../utils/asset';
+
+interface Props {
+  src?: string;
+  poster?: string;
+  alt?: string;
+  label?: string;
+}
+
+const {
+  src = '/models/model.glb',
+  poster = '/images/model-poster.webp',
+  alt = 'Model 3D interaktif yang dapat diputar dengan mouse atau sentuhan',
+  label = 'Model 3D / .glb',
+} = Astro.props;
+---
+
+<div class="model-stage" data-model-stage>
+  <model-viewer
+    src={asset(src)}
+    poster={asset(poster)}
+    alt={alt}
+    camera-controls
+    auto-rotate
+    auto-rotate-delay="900"
+    rotation-per-second="10deg"
+    camera-orbit="24deg 60deg auto"
+    min-camera-orbit="auto 32deg auto"
+    max-camera-orbit="auto 82deg auto"
+    min-field-of-view="25deg"
+    max-field-of-view="55deg"
+    shadow-intensity="0.35"
+    shadow-softness="0.9"
+    exposure="1.1"
+    environment-image="neutral"
+    interaction-prompt="none"
+    loading="lazy"
+    touch-action="pan-y"
+    data-model-viewer
+  >
+  </model-viewer>
+
+  <img
+    class="model-stage__fallback"
+    src={asset(poster)}
+    alt={alt}
+    width="1000"
+    height="1000"
+    loading="lazy"
+    decoding="async"
+    data-model-fallback
+  />
+
+  <noscript>
+    <style>
+      .model-stage model-viewer {
+        display: none;
+      }
+
+      .model-stage .model-stage__fallback {
+        display: block !important;
+      }
+    </style>
+    <img
+      class="model-stage__fallback model-stage__fallback--nojs"
+      src={asset(poster)}
+      alt={alt}
+      width="1000"
+      height="1000"
+    />
+  </noscript>
+
+  <div class="model-stage__hud model-stage__hud--top" aria-hidden="true">
+    <span>{label}</span>
+    <span>WebGL</span>
+  </div>
+  <div class="model-stage__hud model-stage__hud--bottom" aria-hidden="true">
+    <span class="model-stage__hint">Drag untuk memutar</span>
+    <span>Auto-rotate</span>
+  </div>
+
+  <span class="model-stage__corner model-stage__corner--tl" aria-hidden="true"></span>
+  <span class="model-stage__corner model-stage__corner--tr" aria-hidden="true"></span>
+  <span class="model-stage__corner model-stage__corner--bl" aria-hidden="true"></span>
+  <span class="model-stage__corner model-stage__corner--br" aria-hidden="true"></span>
+</div>
+
+<script>
+  import '../scripts/model-viewer';
+</script>

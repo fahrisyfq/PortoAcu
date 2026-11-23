@@ -1,0 +1,38 @@
+{
+  "name": "portoaku",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Personal portfolio website built with Astro 6, React 18, GSAP, and model-viewer.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "generate:profile": "node scripts/generate-profile-card.mjs",
+    "generate:chip": "node scripts/generate-chip-model.mjs",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^5.0.6",
+    "@astrojs/sitemap": "^3.7.5",
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0",
+    "@fontsource-variable/source-serif-4": "^5.3.1",
+    "astro": "^6.4.8",
+    "gsap": "^3.15.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

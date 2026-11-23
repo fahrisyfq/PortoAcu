@@ -1,0 +1,17 @@
+{
+  "type": "education",
+  "role": "S1 Informatika",
+  "organization": "Universitas Teknologi Nusantara",
+  "location": "Bandung, Indonesia",
+  "period": "Sep 2023 — Sekarang",
+  "start": "2023-09",
+  "current": true,
+  "summary": "Menempuh studi Informatika dengan fokus pada rekayasa web, interaksi manusia-komputer, dan basis data.",
+  "highlights": [
+    "IPK saat ini 3.72 / 4.00.",
+    "Mata kuliah favorit: Pemrograman Web, Interaksi Manusia-Komputer, dan Basis Data.",
+    "Anggota tim riset kecil untuk evaluasi usability aplikasi kampus."
+  ],
+  "tags": ["Informatika", "Web Engineering", "HCI"],
+  "order": 1
+}

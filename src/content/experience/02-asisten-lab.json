@@ -1,0 +1,17 @@
+{
+  "type": "work",
+  "role": "Asisten Laboratorium Web",
+  "organization": "Universitas Teknologi Nusantara",
+  "location": "Bandung, Indonesia",
+  "period": "Feb 2024 — Sekarang",
+  "start": "2024-02",
+  "current": true,
+  "summary": "Mendampingi mahasiswa dalam praktikum pemrograman web dan membantu menjaga kualitas modul belajar.",
+  "highlights": [
+    "Mengajar dasar HTML, CSS, JavaScript, dan Git kepada 60+ mahasiswa per semester.",
+    "Menyusun ulang modul praktikum responsif bersama tim dosen.",
+    "Menyediakan sesi konsultasi mingguan untuk debugging proyek akhir."
+  ],
+  "tags": ["Teaching", "HTML/CSS", "JavaScript", "Git"],
+  "order": 2
+}

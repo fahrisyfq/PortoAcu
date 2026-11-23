@@ -1,0 +1,96 @@
+---
+import '../styles/tokens.css';
+import '../styles/base.css';
+import '../styles/components.css';
+import '../styles/utilities.css';
+
+import Navbar from '../components/react/Navbar';
+import Footer from '../components/Footer.astro';
+import ScrollProgress from '../components/ScrollProgress.astro';
+import SEO from '../components/SEO.astro';
+import { asset } from '../utils/asset';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const { title, description, image, noindex } = Astro.props;
+---
+
+<!doctype html>
+<html lang="id" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0a0c10" />
+
+    <script is:inline>
+      (function () {
+        var theme = 'dark';
+        try {
+          var stored = window.localStorage.getItem('porto-theme');
+          if (stored === 'light' || stored === 'dark') {
+            theme = stored;
+          } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+            theme = 'light';
+          }
+        } catch (error) {
+          theme = window.matchMedia('(prefers-color-scheme: light)').matches
+            ? 'light'
+            : 'dark';
+        }
+        var root = document.documentElement;
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) {
+          meta.setAttribute('content', theme === 'light' ? '#f7f8fa' : '#0a0c10');
+        }
+      })();
+    </script>
+
+    <SEO title={title} description={description} image={image} noindex={noindex} />
+
+    <link
+      rel="preload"
+      href={asset('/fonts/geist-latin-wght-normal.woff2')}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href={asset('/fonts/source-serif-4-latin-wght-italic.woff2')}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="icon" href={asset('/favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={asset('/favicon-32.png')} sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href={asset('/apple-touch-icon.png')} />
+    <link rel="manifest" href={asset('/site.webmanifest')} />
+    <link rel="sitemap" href={asset('/sitemap-index.xml')} />
+
+    <slot name="head" />
+  </head>
+
+  <body id="top">
+    <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+    <ScrollProgress />
+    <Navbar client:load />
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      import { initTheme } from '../scripts/theme';
+      import '../scripts/animations';
+      initTheme();
+    </script>
+    <slot name="scripts" />
+  </body>
+</html>

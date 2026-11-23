@@ -1,0 +1,28 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  accent?: string;
+  description?: string;
+  id?: string;
+  center?: boolean;
+}
+
+const {
+  eyebrow,
+  title,
+  accent,
+  description,
+  id,
+  center = false,
+} = Astro.props;
+---
+
+<header class:list={['section-head', { 'section-head--center': center }]} data-reveal>
+  <p class="eyebrow">{eyebrow}</p>
+  <h2 class="section-head__title" id={id}>
+    {title}{accent && <> <em>{accent}</em></>}
+  </h2>
+  {description && <p class="section-head__desc">{description}</p>}
+  <slot />
+</header>

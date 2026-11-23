@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+import { asset } from '../utils/asset';
+---
+
+<BaseLayout
+  title={`Halaman tidak ditemukan — ${site.name}`}
+  description="Halaman yang Anda cari tidak tersedia."
+  noindex
+>
+  <section class="section error-page" aria-labelledby="not-found-title">
+    <div class="container">
+      <p class="eyebrow">Error / 404</p>
+      <h1 class="error-page__title" id="not-found-title">
+        Halaman ini tidak ada<span class="text-accent">.</span>
+      </h1>
+      <p class="error-page__text">
+        Mungkin tautannya salah, atau halaman ini sudah dipindahkan. Anda bisa
+        kembali ke beranda dan melihat bagian lain dari portofolio.
+      </p>
+      <div class="btn-group">
+        <a class="btn btn--primary" href={asset('/')}>Kembali ke beranda</a>
+        <a class="btn btn--secondary" href={asset('/#projects')}>Lihat proyek</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

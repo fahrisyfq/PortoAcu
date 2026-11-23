@@ -1,0 +1,17 @@
+{
+  "type": "certification",
+  "role": "Juara 2 — Hackathon Kampus",
+  "organization": "Festival Inovasi Digital 2025",
+  "location": "Bandung, Indonesia",
+  "period": "Nov 2025",
+  "start": "2025-11",
+  "end": "2025-11",
+  "current": false,
+  "summary": "Membangun prototipe katalog UMKM dalam 36 jam bersama tim berisi tiga orang.",
+  "highlights": [
+    "Merancang dan mengimplementasikan front-end dalam waktu 20 jam.",
+    "Menjalani presentasi produk di depan juri industri."
+  ],
+  "tags": ["Hackathon", "Teamwork", "Astro"],
+  "order": 6
+}

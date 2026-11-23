@@ -1,0 +1,95 @@
+---
+import { site } from '../data/site';
+import Icon from './Icon.astro';
+import ModelViewer from './ModelViewer.astro';
+
+const [firstName, ...nameRest] = site.name.split(' ');
+const lastName = nameRest.join(' ');
+const socials = site.socials.filter((social) =>
+  ['github', 'instagram', 'mail'].includes(social.icon),
+);
+---
+
+<section class="hero" id="home" aria-labelledby="hero-title">
+  <div class="hero__grid-bg" aria-hidden="true"></div>
+  <div class="hero__orb" data-parallax="0.16" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="hero__inner" data-parallax-scope>
+      <div class="hero__content">
+        <p class="hero__badge" data-hero-item>
+          <span class="status-dot" aria-hidden="true"></span>
+          {site.status}
+        </p>
+
+        <h1 class="hero__title" id="hero-title" data-hero-item>
+          <span class="hero__title-line">{firstName}</span>
+          <span class="hero__title-line">
+            {lastName}<span class="hero__title-dot">.</span>
+          </span>
+        </h1>
+
+        <p class="hero__role" data-hero-item>
+          <span>{site.role}</span>
+          <span class="hero__role-sep" aria-hidden="true"></span>
+          <span>{site.secondaryRole}</span>
+        </p>
+
+        <p class="hero__tagline" data-hero-item>
+          <span aria-hidden="true">“</span>{site.tagline}<span aria-hidden="true">”</span>
+        </p>
+
+        <div class="btn-group hero__actions" data-hero-item>
+          <a class="btn btn--primary" href="#projects">
+            Lihat Proyek
+            <Icon name="arrow-right" />
+          </a>
+          <a class="btn btn--secondary" href="#contact">
+            Hubungi Saya
+            <Icon name="arrow-up-right" />
+          </a>
+        </div>
+
+        <div class="hero__socials" data-hero-item>
+          <span>Terhubung /</span>
+          {socials.map((social) => (
+            <a
+              href={social.href}
+              target={social.href.startsWith('http') ? '_blank' : undefined}
+              rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+            >
+              <Icon name={social.icon} />
+              {social.label}
+              <span class="sr-only">
+                {social.href.startsWith('http') ? '(terbuka di tab baru)' : ''}
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="hero__visual" data-hero-visual>
+        <ModelViewer
+          src="/models/chip.glb"
+          poster="/images/chip-poster.webp"
+          label="PCB 3D / .glb"
+          alt="Model 3D papan sirkuit (PCB) interaktif"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero__stats" data-stagger>
+      {site.stats.map((stat) => (
+        <div class="stat" data-stagger-item>
+          <p class="stat__value">
+            <span data-counter={stat.value}>{stat.value}</span>
+            {stat.suffix && <span class="stat__suffix">{stat.suffix}</span>}
+          </p>
+          <p class="stat__label">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

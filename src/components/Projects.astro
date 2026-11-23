@@ -1,0 +1,120 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import { site } from '../data/site';
+import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
+
+const entries = await getCollection('projects', ({ data }) => !data.draft);
+const projects = entries.sort((a, b) => a.data.order - b.data.order);
+const github = site.socials.find((social) => social.icon === 'github');
+---
+
+<section class="section projects" id="projects" aria-labelledby="projects-title">
+  <span class="section-index" aria-hidden="true">04 / Projects</span>
+
+  <div class="container">
+    <SectionHeading
+      eyebrow="Proyek Pilihan"
+      id="projects-title"
+      title="Karya kecil dengan"
+      accent="detail yang serius."
+      description="Sebagian besar dimulai dari masalah sehari-hari: jadwal kampus, catatan kuliah, atau UMKM yang belum punya katalog. Setiap proyek punya cerita teknisnya sendiri."
+    />
+
+    <div class="projects__grid" data-stagger>
+      {projects.map((project) => {
+        const primaryUrl = project.data.demoUrl ?? project.data.repoUrl;
+        return (
+          <article
+            class:list={['project-card', { 'project-card--featured': project.data.featured }]}
+            data-stagger-item
+          >
+            <div class="project-card__media">
+              <Image
+                src={project.data.cover}
+                alt={project.data.coverAlt}
+                widths={[560, 900, 1200]}
+                sizes={
+                  project.data.featured
+                    ? '(min-width: 768px) 58vw, 100vw'
+                    : '(min-width: 768px) 46vw, 100vw'
+                }
+                format="webp"
+                quality={84}
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="project-card__year">{project.data.year}</span>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title">
+                {primaryUrl ? (
+                  <a
+                    href={primaryUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Buka ${project.data.title}${project.data.demoUrl ? ' (demo)' : ' (repositori)'}`}
+                  >
+                    {project.data.title}
+                  </a>
+                ) : (
+                  project.data.title
+                )}
+              </h3>
+
+              <p class="project-card__desc">{project.data.description}</p>
+
+              <ul class="project-card__tags" aria-label={`Teknologi ${project.data.title}`}>
+                {project.data.tags.map((tag) => (
+                  <li class="chip">{tag}</li>
+                ))}
+              </ul>
+
+              <div class="project-card__actions">
+                {project.data.demoUrl && (
+                  <a
+                    class="project-link"
+                    href={project.data.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Lihat demo
+                    <Icon name="arrow-up-right" />
+                  </a>
+                )}
+                {project.data.repoUrl && (
+                  <a
+                    class="project-link project-link--muted"
+                    href={project.data.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                    <Icon name="github" />
+                  </a>
+                )}
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+    <div class="projects__footer">
+      <p>{projects.length} proyek terpilih · lebih banyak di GitHub</p>
+      {github && (
+        <a
+          class="btn btn--ghost btn--sm"
+          href={github.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Semua proyek
+          <Icon name="arrow-up-right" />
+        </a>
+      )}
+    </div>
+  </div>
+</section>

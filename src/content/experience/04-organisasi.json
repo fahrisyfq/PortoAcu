@@ -1,0 +1,18 @@
+{
+  "type": "organization",
+  "role": "Ketua Divisi Media & Teknologi",
+  "organization": "Himpunan Mahasiswa Informatika",
+  "location": "Bandung, Indonesia",
+  "period": "Feb 2024 — Des 2024",
+  "start": "2024-02",
+  "end": "2024-12",
+  "current": false,
+  "summary": "Memimpin tim berisi lima orang untuk mengelola situs, media sosial, dan publikasi acara himpunan.",
+  "highlights": [
+    "Membangun ulang situs HIMATIF dengan fokus pada kecepatan dan aksesibilitas.",
+    "Mengoordinasikan publikasi untuk 12 acara, termasuk hackathon internal.",
+    "Membuat template desain yang tetap konsisten setelah kepengurusan berganti."
+  ],
+  "tags": ["Leadership", "Web", "Design", "Content"],
+  "order": 4
+}

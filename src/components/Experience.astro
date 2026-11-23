@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import SectionHeading from './SectionHeading.astro';
+
+const typeLabels = {
+  education: 'Pendidikan',
+  work: 'Pengalaman',
+  organization: 'Organisasi',
+  certification: 'Sertifikasi',
+} as const;
+
+const entries = await getCollection('experience');
+const items = entries.sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="section experience" id="experience" aria-labelledby="experience-title">
+  <span class="section-index" aria-hidden="true">05 / Experience</span>
+
+  <div class="container">
+    <SectionHeading
+      eyebrow="Perjalanan"
+      id="experience-title"
+      title="Belajar lewat praktik"
+      accent="dan komunitas."
+      description="Pendidikan formal adalah fondasi, tetapi banyak hal yang saya pahami justru datang dari mengajar, berorganisasi, dan mengerjakan proyek nyata bersama orang lain."
+    />
+
+    <ol class="timeline" data-stagger>
+      {items.map(({ data }) => (
+        <li
+          class:list={['timeline__item', { 'is-current': data.current }]}
+          data-stagger-item
+        >
+          <span class="timeline__marker" aria-hidden="true"></span>
+
+          <div class="timeline__meta">
+            <span class:list={['timeline__type', `timeline__type--${data.type}`]}>
+              {typeLabels[data.type]}
+            </span>
+            <time class="timeline__period" datetime={data.start}>
+              {data.period}
+            </time>
+            {data.current && (
+              <span class="timeline__current">
+                <span class="status-dot" aria-hidden="true"></span>
+                Sekarang
+              </span>
+            )}
+          </div>
+
+          <div class="timeline__content">
+            <h3 class="timeline__role">{data.role}</h3>
+            <p class="timeline__org">
+              {data.organization}
+              {data.location && (
+                <>
+                  <span aria-hidden="true"></span>
+                  {data.location}
+                </>
+              )}
+            </p>
+            <p class="timeline__summary">{data.summary}</p>
+
+            {data.highlights.length > 0 && (
+              <ul class="timeline__highlights">
+                {data.highlights.map((highlight) => <li>{highlight}</li>)}
+              </ul>
+            )}
+
+            {data.tags.length > 0 && (
+              <ul class="timeline__tags" aria-label="Topik terkait">
+                {data.tags.map((tag) => <li class="chip">{tag}</li>)}
+              </ul>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

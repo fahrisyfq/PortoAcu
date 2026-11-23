@@ -1,0 +1,59 @@
+---
+import { site } from '../data/site';
+import ContactForm from './react/ContactForm';
+import Icon from './Icon.astro';
+---
+
+<section class="section contact" id="contact" aria-labelledby="contact-title">
+  <span class="section-index" aria-hidden="true">06 / Contact</span>
+
+  <div class="container">
+    <div class="contact__grid">
+      <div class="contact__intro" data-reveal>
+        <p class="eyebrow">Kontak</p>
+        <h2 class="contact__heading" id="contact-title">
+          Punya proyek atau <em>peluang?</em>
+        </h2>
+        <p class="contact__text">
+          Saya terbuka untuk magang, proyek freelance kecil, atau sekadar
+          berdiskusi soal front-end dan aksesibilitas. Ceritakan sedikit konteks
+          Anda — saya akan membalas dengan jujur apakah saya bisa membantu.
+        </p>
+
+        <div class="contact__availability">
+          <span class="status-dot" aria-hidden="true"></span>
+          {site.availability}
+        </div>
+
+        <a class="contact__email" href={`mailto:${site.email}`}>
+          {site.email}
+          <Icon name="arrow-up-right" />
+        </a>
+
+        <div class="social-list">
+          {site.socials.map((social) => (
+            <a
+              class="social-row"
+              href={social.href}
+              target={social.href.startsWith('http') ? '_blank' : undefined}
+              rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+            >
+              <span class="social-row__label">
+                <Icon name={social.icon} />
+                <strong>{social.label}</strong>
+              </span>
+              <span class="social-row__end">
+                <span class="social-row__handle">{social.handle}</span>
+                <Icon name="arrow-up-right" class="social-row__arrow" />
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div data-reveal>
+        <ContactForm client:visible />
+      </div>
+    </div>
+  </div>
+</section>

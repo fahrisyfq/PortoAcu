@@ -1,0 +1,74 @@
+---
+import { site } from '../data/site';
+import { asset } from '../utils/asset';
+import Icon from './Icon.astro';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a class="brand" href="#top">
+          <span class="brand__mark" aria-hidden="true">{site.initials}</span>
+          <span class="brand__text">
+            <span class="brand__name">{site.name}</span>
+            <span class="brand__meta">{site.secondaryRole}</span>
+          </span>
+        </a>
+        <p class="footer__tagline">
+          Antarmuka yang rapi, cepat, dan manusiawi — dibangun sedikit demi
+          sedikit dengan rasa ingin tahu.
+        </p>
+        <p class="footer__meta">{site.location} · Waktu Indonesia Barat</p>
+      </div>
+
+      <div class="footer__columns">
+        <div class="footer__col">
+          <h2>Navigasi</h2>
+          <nav class="footer__links" aria-label="Navigasi footer">
+            {site.nav.map((item) => (
+              <a href={item.href}>{item.label}</a>
+            ))}
+          </nav>
+        </div>
+
+        <div class="footer__col">
+          <h2>Sosial</h2>
+          <div class="footer__links">
+            {site.socials.map((social) => (
+              <a
+                href={social.href}
+                target={social.href.startsWith('http') ? '_blank' : undefined}
+                rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              >
+                {social.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h2>Kontak</h2>
+          <div class="footer__links">
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+            <a href="#contact">Kirim pesan</a>
+            <a href={asset(site.cvUrl)} download>Unduh CV</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__meta">
+        © {currentYear} <span>{site.name}</span>. Dibangun dengan Astro, React,
+        GSAP, dan CSS kustom.
+      </p>
+      <a class="back-to-top" href="#top">
+        Kembali ke atas
+        <Icon name="arrow-up" />
+      </a>
+    </div>
+  </div>
+</footer>

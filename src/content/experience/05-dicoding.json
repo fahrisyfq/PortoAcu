@@ -1,0 +1,16 @@
+{
+  "type": "certification",
+  "role": "Belajar Dasar Pemrograman Web",
+  "organization": "Dicoding Indonesia",
+  "period": "2024",
+  "start": "2024-03",
+  "end": "2024-04",
+  "current": false,
+  "summary": "Sertifikasi dasar tentang HTML semantik, CSS responsif, dan JavaScript untuk halaman web yang aksesibel.",
+  "highlights": [
+    "Menyelesaikan proyek akhir dengan skor 95/100.",
+    "Dinilai pada struktur HTML, responsivitas, dan kualitas kode."
+  ],
+  "tags": ["Certification", "HTML", "CSS", "JavaScript"],
+  "order": 5
+}

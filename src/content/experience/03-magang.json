@@ -1,0 +1,18 @@
+{
+  "type": "work",
+  "role": "Front-End Developer Intern",
+  "organization": "Studio Digital Kirana",
+  "location": "Bandung, Indonesia (Hybrid)",
+  "period": "Jun 2025 — Agu 2025",
+  "start": "2025-06",
+  "end": "2025-08",
+  "current": false,
+  "summary": "Mengerjakan antarmuka untuk dua situs klien dan membantu membangun ulang design system internal.",
+  "highlights": [
+    "Memindahkan komponen Figma menjadi komponen Astro dan React yang dapat digunakan ulang.",
+    "Menurunkan ukuran halaman klien sekitar 38% dengan optimasi aset dan CSS.",
+    "Menyusun dokumentasi komponen untuk tim yang lebih besar."
+  ],
+  "tags": ["Astro", "React", "TypeScript", "Figma"],
+  "order": 3
+}

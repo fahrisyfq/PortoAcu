@@ -1,0 +1,95 @@
+---
+import { Image } from 'astro:assets';
+import profileImage from '../assets/images/profile.png';
+import { site } from '../data/site';
+import { asset } from '../utils/asset';
+import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
+---
+
+<section class="section about" id="about" aria-labelledby="about-title">
+  <span class="section-index" aria-hidden="true">02 / About</span>
+
+  <div class="container">
+    <SectionHeading
+      eyebrow="Tentang Saya"
+      id="about-title"
+      title="Belajar dengan membangun,"
+      accent="bukan sekadar menonton."
+      description="Saya percaya cara terbaik memahami web adalah dengan membuatnya: menguji ide, mengukur hasilnya, lalu memperbaiki detail yang terasa mengganggu."
+    />
+
+    <div class="about__grid">
+      <div class="about__media" data-reveal>
+        <figure class="portrait">
+          <Image
+            src={profileImage}
+            alt={`Foto profil ${site.name}`}
+            widths={[360, 540, 900]}
+            sizes="(min-width: 768px) 320px, 88vw"
+            format="webp"
+            quality={86}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="portrait__caption">
+            <span>{site.name}</span>
+            <span>Semarang / ID</span>
+          </figcaption>
+        </figure>
+
+        <div class="about__floating" aria-hidden="true">
+          <strong>{site.semester}</strong>
+          <span>{site.department}</span>
+        </div>
+      </div>
+
+      <div class="about__body" data-reveal>
+        <p class="about__lead">{site.shortBio}</p>
+
+        <div class="about__copy">
+          {site.bio.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+
+        <blockquote class="about__quote">
+          “Desain yang baik tidak berteriak. Ia menjelaskan.”
+          <cite>Prinsip kerja — sederhana, jelas, terukur</cite>
+        </blockquote>
+
+        <dl class="info-list">
+          <div class="info-row">
+            <dt>Kampus</dt>
+            <dd>{site.campus}</dd>
+          </div>
+          <div class="info-row">
+            <dt>Jurusan</dt>
+            <dd>{site.department}</dd>
+          </div>
+          <div class="info-row">
+            <dt>Prodi</dt>
+            <dd>{site.major} <span>· {site.semester}</span></dd>
+          </div>
+          <div class="info-row">
+            <dt>Lokasi</dt>
+            <dd>{site.location}</dd>
+          </div>
+          <div class="info-row">
+            <dt>Status</dt>
+            <dd>{site.availability}</dd>
+          </div>
+        </dl>
+
+        <div class="about__actions">
+          <a class="btn btn--secondary" href={asset(site.cvUrl)} download>
+            Unduh CV
+            <Icon name="download" />
+          </a>
+          <a class="btn btn--ghost" href="#contact">
+            Diskusikan sesuatu
+            <Icon name="arrow-right" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

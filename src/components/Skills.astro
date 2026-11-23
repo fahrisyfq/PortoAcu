@@ -1,0 +1,49 @@
+---
+import { skills } from '../data/site';
+import SectionHeading from './SectionHeading.astro';
+---
+
+<section class="section skills" id="skills" aria-labelledby="skills-title">
+  <span class="section-index" aria-hidden="true">03 / Skills</span>
+
+  <div class="container">
+    <SectionHeading
+      eyebrow="Keahlian"
+      id="skills-title"
+      title="Perangkat yang saya pakai"
+      accent="setiap hari."
+      description="Bukan daftar panjang tanpa konteks. Ini adalah lapisan teknologi yang benar-benar saya gunakan untuk mengirim pekerjaan, dari prototipe sampai produksi."
+    />
+
+    <div class="skills-table" data-reveal>
+      <div class="skills-table__head" aria-hidden="true">
+        <span>Layer</span>
+        <span>Technology</span>
+      </div>
+
+      <div class="skills-table__body" data-stagger>
+        {skills.map((group, index) => (
+          <div class="skills-row" data-stagger-item>
+            <div>
+              <div class="skill-layer">
+                <span class="skill-layer__index" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 class="skill-layer__name">{group.layer}</h3>
+              </div>
+              <p class="skill-layer__note">{group.note}</p>
+            </div>
+
+            <ul class="skill-chips" aria-label={`Teknologi ${group.label}`}>
+              {group.technologies.map((technology) => (
+                <li class={technology === 'Astro' || technology === 'React 18' ? 'chip chip--accent' : 'chip'}>
+                  {technology}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

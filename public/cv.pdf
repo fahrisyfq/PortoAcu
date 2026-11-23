@@ -1,0 +1,51 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Length 1236 >>
+stream
+BT /F1 24 Tf 60 760 Td (ARIF RAMADHAN) Tj ET
+BT /F2 11 Tf 60 738 Td (Mahasiswa Informatika - Web Developer) Tj ET
+BT /F2 10 Tf 60 716 Td (arif.ramadhan@example.com  |  github.com/ariframadhan  |  Bandung, Indonesia) Tj ET
+BT /F1 13 Tf 60 680 Td (PROFIL) Tj ET
+BT /F2 10 Tf 60 660 Td (Mahasiswa Informatika yang berfokus pada pengembangan web front-end dan desain antarmuka.) Tj ET
+BT /F2 10 Tf 60 646 Td (Terbiasa membangun aplikasi modern dengan Astro, React, TypeScript, dan CSS kustom.) Tj ET
+BT /F1 13 Tf 60 610 Td (PENDIDIKAN) Tj ET
+BT /F2 10 Tf 60 590 Td (S1 Informatika - Universitas Teknologi Nusantara, 2023 - sekarang) Tj ET
+BT /F2 10 Tf 60 576 Td (IPK 3.72 / 4.00) Tj ET
+BT /F1 13 Tf 60 540 Td (PENGALAMAN) Tj ET
+BT /F2 10 Tf 60 520 Td (Front-End Intern - Studio Digital Kirana, Jun - Agu 2025) Tj ET
+BT /F2 10 Tf 60 506 Td (Asisten Laboratorium Web - Universitas Teknologi Nusantara, 2024 - sekarang) Tj ET
+BT /F2 10 Tf 60 492 Td (Ketua Divisi Media - Himpunan Mahasiswa Informatika, 2024) Tj ET
+BT /F1 13 Tf 60 456 Td (KEAHLIAN) Tj ET
+BT /F2 10 Tf 60 436 Td (TypeScript, JavaScript, React, Astro, Node.js, PostgreSQL, Git, Figma, GSAP) Tj ET
+BT /F2 9 Tf 60 80 Td (Dokumen contoh - ganti public/cv.pdf dengan CV Anda.) Tj ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000000326 00000 n 
+0000000396 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+1684
+%%EOF
